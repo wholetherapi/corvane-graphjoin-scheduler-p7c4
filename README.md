@@ -1,41 +1,17 @@
-# Cindermill Recordlink
+# Corvane Graphjoin Scheduler
 
-Score record pairs with calibrated agreement weights.
+Graphjoin Scheduler - work-stealing scheduling for distributed graph joins.
 
-## Overview
+## Status
 
-Cindermill Recordlink compares records coming from CRM, billing and support exports and
-returns a scored decision for each candidate pair. The package ships
-blocking, normalisation and survivorship helpers that fit the usual master
-data pipeline, together with a small CLI for batch runs.
-
-## Quick start
-
-```bash
-pip install -r requirements.txt
-python -m cindermill_recordlink.matcher --input pairs.jsonl --output decisions.jsonl
-```
+**To be released.** The implementation is being cleaned up for the artifact
+evaluation and the code will be published after the camera-ready deadline
+(2026-12-01). The `src/`, `data/` and `experiments/` folders in this
+repository are placeholders kept so the camera-ready artifact checklist is
+visible to reviewers.
 
 ## Layout
 
-- `src/cindermill_recordlink/` - library source
-- `tests/` - unit tests
-- `results/` - benchmark snapshots
-- `docs/` - design notes
-
-## Approach
-
-Cindermill Recordlink scores pairs with a Fellegi-Sunter style model. Each field carries an
-m-probability (agreement given a match) and a u-probability (agreement given a
-non-match); the pair score is the sum of log2(m/u) over agreeing fields. The
-thresholds and the parameter table can be re-estimated from labelled pairs.
-This is a Probabilistic-scoring-based design; every score is a log-likelihood
-ratio and can be reviewed field by field.
-
-## Benchmark
-
-Latest numbers are stored under `results/benchmark.md`.
-
-## License
-
-Internal evaluation copy - not for redistribution.
+- `src/` - scheduler and join operators (placeholder)
+- `data/` - graph fixtures (placeholder)
+- `experiments/` - evaluation driver (placeholder)
